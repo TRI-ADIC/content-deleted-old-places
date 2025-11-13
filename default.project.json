@@ -1,0 +1,100 @@
+{
+  "name": "2 - content deleted old places",
+  "tree": {
+    "$className": "DataModel",
+    "Lighting": {
+      "$className": "Lighting",
+      "$path": "src/Lighting",
+      "$properties": {
+        "Ambient": [
+          0.20000000298023224,
+          0.0,
+          1.0
+        ],
+        "Brightness": 0.5,
+        "ColorShift_Top": [
+          0.3176470696926117,
+          0.22745098173618317,
+          1.0
+        ],
+        "EnvironmentDiffuseScale": 1.0,
+        "EnvironmentSpecularScale": 1.0,
+        "FogColor": [
+          0.7529412508010864,
+          0.7529412508010864,
+          0.7529412508010864
+        ],
+        "GeographicLatitude": 22.0,
+        "GlobalShadows": true,
+        "OutdoorAmbient": [
+          0.41568630933761597,
+          0.3607843220233917,
+          1.0
+        ],
+        "Outlines": false,
+        "PrioritizeLightingQuality": true,
+        "ShadowSoftness": 0.3499999940395355,
+        "Technology": "ShadowMap",
+        "TimeOfDay": "12:00:00"
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$path": "src/ReplicatedStorage"
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$path": "src/ServerScriptService"
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "$path": "src/ServerStorage"
+    },
+    "StarterPlayer": {
+      "$properties": {
+        "CameraMaxZoomDistance": 128.0,
+        "CharacterUseJumpPower": false,
+        "GameSettingsAvatar": "PlayerChoice"
+      }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "SignalBehavior": "Deferred",
+        "StreamOutBehavior": "Opportunistic",
+        "StreamingEnabled": true,
+        "StreamingIntegrityMode": "PauseOutsideLoadedArea",
+        "WorldPivotData": {
+          "OptionalCFrame": {
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      },
+      "$attributes": {
+        "Rojo_Target_CurrentCamera": "2c02adbdd602ad5a080e123600000ab0"
+      },
+      "$path": "src/Workspace"
+    }
+  }
+}
