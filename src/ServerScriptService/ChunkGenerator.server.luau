@@ -10,7 +10,7 @@ local Workspace    = game:GetService("Workspace")
 local Replicated   = game:GetService("ReplicatedStorage")
 
 -- -----------------------------------------------------------------
--- CONFIGURATION (unchanged)
+-- CONFIGURATION
 -- -----------------------------------------------------------------
 local CHUNK_SIZE      = 100
 local LOAD_RADIUS     = 4
@@ -19,8 +19,8 @@ local UNLOAD_DISTANCE = LOAD_RADIUS + UNLOAD_BUFFER
 
 local NOISE_SCALE = 0.02
 local BIOME_THRESHOLDS = {
-	Grasslands   = 55,
-	Desert       = 85,
+	Grasslands   = 50,
+	Desert       = 80,
 	SnowyPlains  = 100,
 }
 
@@ -31,7 +31,7 @@ local generated = {}
 local function cellKey(x, z) return x .. "_" .. z end
 
 -- -----------------------------------------------------------------
--- 1️⃣ Deterministic base biome map (unchanged)
+-- 1️⃣ Deterministic base biome map
 -- -----------------------------------------------------------------
 local function getBaseBiome(cellX, cellZ)
 	local n = math.noise(cellX * NOISE_SCALE, cellZ * NOISE_SCALE)
@@ -45,7 +45,7 @@ local function getBaseBiome(cellX, cellZ)
 end
 
 -- -----------------------------------------------------------------
--- 2️⃣ Chunk creation (now passes the biome to the picker)
+-- 2️⃣ Chunk creation
 -- -----------------------------------------------------------------
 local ChunkPicker = require(game.ServerStorage.ChunkPicker)
 
@@ -72,7 +72,7 @@ local function createChunkAt(cellX, cellZ)
 end
 
 -- -----------------------------------------------------------------
--- 3️⃣ Unload far cells (unchanged)
+-- 3️⃣ Unload far cells
 -- -----------------------------------------------------------------
 local function unloadFarCells(playerPos)
 	local pcx = math.floor(playerPos.X / CHUNK_SIZE + 0.5)
@@ -90,7 +90,7 @@ local function unloadFarCells(playerPos)
 end
 
 -- -----------------------------------------------------------------
--- 4️⃣ Per‑player generation loop (unchanged)
+-- 4️⃣ Per‑player generation loop
 -- -----------------------------------------------------------------
 local function runGenerationLoop(player)
 	while player.Parent do
@@ -114,7 +114,7 @@ local function runGenerationLoop(player)
 end
 
 -- -----------------------------------------------------------------
--- 5️⃣ Player connection handling (unchanged)
+-- 5️⃣ Player connection handling
 -- -----------------------------------------------------------------
 Players.PlayerAdded:Connect(function(plr)
 	spawn(function() runGenerationLoop(plr) end)

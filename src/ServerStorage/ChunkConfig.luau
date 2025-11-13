@@ -11,12 +11,13 @@ local ChunkConfig = {}
 
 --------------------------------------------------------------------
 -- 1️⃣ Global biome weights (how likely a biome is chosen overall)
+-- (Not used anymore)
 --------------------------------------------------------------------
-ChunkConfig.BiomeWeights = {
-	Grasslands   = 70,
-	Desert       = 20,
-	SnowyPlains  = 30,
-}
+-- ChunkConfig.BiomeWeights = {
+--	Grasslands   = 70,
+-- 	Desert       = 20,
+-- 	SnowyPlains  = 30,
+-- }
 
 --------------------------------------------------------------------
 -- 2️⃣ Per‑biome definitions
@@ -29,9 +30,9 @@ ChunkConfig.Biomes = {
 	Grasslands = {
 		-- Relative chance of each *category* inside this biome
 		CategoryWeights = {
-			GrassChunks    = 70,
+			GrassChunks    = 90,
 			HoleChunks     = 1,
-			LandmarkChunks = 15,
+			LandmarkChunks = 10,
 			RuinsChunks    = 5,
 		},
 
@@ -40,7 +41,7 @@ ChunkConfig.Biomes = {
 		-- ReplicatedStorage → ChunkTemplates → Grasslands → <Category>.
 		Categories = {
 			GrassChunks = {
-				GrassChunk01 = 70,
+				GrassChunk01 = 80,
 				GrassChunk02 = 20,
 				GrassChunk03 = 30,
 				GrassChunk04 = 1,
@@ -54,16 +55,16 @@ ChunkConfig.Biomes = {
 			},
 			LandmarkChunks = {
 				LandmarkChunk01 = 5,
-				LandmarkChunk02 = 50,
-				LandmarkChunk03 = 30,
+				LandmarkChunk02 = 60,
+				LandmarkChunk03 = 20,
 				LandmarkChunk04 = 1,
 			},
 			RuinsChunks = {
-				RuinsChunk01 = 5,
-				RuinsChunk02 = 5,
-				RuinsChunk03 = 5,
-				RuinsChunk04 = 50,
-				RuinsChunk05 = 50,
+				RuinsChunk01 = 1,
+				RuinsChunk02 = 1,
+				RuinsChunk03 = 1,
+				RuinsChunk04 = 60,
+				RuinsChunk05 = 60,
 			},
 		},
 	},
@@ -73,14 +74,14 @@ ChunkConfig.Biomes = {
 	----------------------------------------------------------------
 	Desert = {
 		CategoryWeights = {
-			DesertChunks   = 75,
+			DesertChunks   = 95,
 			HoleChunks     = 1,
 			LandmarkChunks = 10,
 			RuinsChunks    = 5,
 		},
 		Categories = {
 			DesertChunks = {
-				DesertChunk01 = 90,
+				DesertChunk01 = 95,
 				DesertChunk02 = 20,
 				DesertChunk03 = 40,
 				DesertChunk04 = 1,
@@ -93,16 +94,16 @@ ChunkConfig.Biomes = {
 			},
 			LandmarkChunks = {
 				LandmarkChunk01 = 5,
-				LandmarkChunk02 = 50,
-				LandmarkChunk03 = 30,
+				LandmarkChunk02 = 60,
+				LandmarkChunk03 = 20,
 				LandmarkChunk04 = 1,
 			},
 			RuinsChunks = {
-				RuinsChunk01 = 5,
-				RuinsChunk02 = 5,
-				RuinsChunk03 = 5,
-				RuinsChunk04 = 50,
-				RuinsChunk05 = 50,
+				RuinsChunk01 = 1,
+				RuinsChunk02 = 1,
+				RuinsChunk03 = 1,
+				RuinsChunk04 = 60,
+				RuinsChunk05 = 60,
 			},
 		},
 	},
@@ -112,14 +113,14 @@ ChunkConfig.Biomes = {
 	----------------------------------------------------------------
 	SnowyPlains = {
 		CategoryWeights = {
-			SnowChunks     = 70,
+			SnowChunks     = 90,
 			HoleChunks     = 1,
 			LandmarkChunks = 15,
 			RuinsChunks    = 5,
 		},
 		Categories = {
 			SnowChunks = {
-				SnowChunk01 = 70,
+				SnowChunk01 = 90,
 				SnowChunk02 = 20,
 				SnowChunk03 = 30,
 				SnowChunk04 = 1,
@@ -133,16 +134,16 @@ ChunkConfig.Biomes = {
 			},
 			LandmarkChunks = {
 				LandmarkChunk01 = 5,
-				LandmarkChunk02 = 50,
-				LandmarkChunk03 = 30,
+				LandmarkChunk02 = 60,
+				LandmarkChunk03 = 20,
 				LandmarkChunk04 = 1,
 			},
 			RuinsChunks = {
-				RuinsChunk01 = 5,
-				RuinsChunk02 = 5,
-				RuinsChunk03 = 5,
-				RuinsChunk04 = 50,
-				RuinsChunk05 = 50,
+				RuinsChunk01 = 1,
+				RuinsChunk02 = 1,
+				RuinsChunk03 = 1,
+				RuinsChunk04 = 60,
+				RuinsChunk05 = 60,
 			},
 		},
 	},
