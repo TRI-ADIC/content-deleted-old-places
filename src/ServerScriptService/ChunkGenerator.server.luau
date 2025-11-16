@@ -30,6 +30,16 @@ local BIOME_THRESHOLDS = {
 local generated = {}
 local function cellKey(x, z) return x .. "_" .. z end
 
+-- ------------------------------------------------------------------
+-- Helper – pick a random Y‑rotation
+---------------------------------------------------------------------
+local function randomCardinalRotation()
+    -- 0 = North, 90 = East, 180 = South, 270 = West
+    local angles = {0, 90, 180, 270}
+    local idx = math.random(1, #angles)   -- uniform 1‑4
+    return math.rad(angles[idx])          -- convert to radians for CFrame
+end
+
 -- -----------------------------------------------------------------
 -- 1️⃣ Deterministic base biome map
 -- -----------------------------------------------------------------
@@ -66,6 +76,13 @@ local function createChunkAt(cellX, cellZ)
 	chunk:SetPrimaryPartCFrame(
 		CFrame.new(cellX * CHUNK_SIZE, 0, cellZ * CHUNK_SIZE)
 	)
+
+	local targetPos = Vector3.new(cellX * CHUNK_SIZE, 0, cellZ * CHUNK_SIZE)
+	local yRot = randomCardinalRotation()
+	local finalCF = CFrame.new(targetPos) * CFrame.Angles(0, yRot, 0)
+
+	chunk:PivotTo(finalCF)   -- works even if the model has no PrimaryPart
+
 	local parentFolder = Workspace:FindFirstChild("Chunks") or Workspace
 	chunk.Parent = parentFolder
 	generated[key] = chunk
