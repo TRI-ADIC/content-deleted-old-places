@@ -20,6 +20,13 @@ local BIOME_THRESHOLDS = {
 	SnowyPlains  = 100,
 }
 
+local RANDOM_BIOME_OFFSET_RANGE = 10000   -- how far the offset can wander (studs)
+
+-- Seed the RNG once when the script loads (tick() is a good unique value)
+math.randomseed(tick())
+local SERVER_BIOME_OFFSET_X = (math.random() * RANDOM_BIOME_OFFSET_RANGE)
+local SERVER_BIOME_OFFSET_Z = (math.random() * RANDOM_BIOME_OFFSET_RANGE)
+
 -- ── Base height‑map (large‑scale) ─────────────────────────────────────
 local ENABLE_BASE_HEIGHTMAP = false
 local BASE_NOISE_SCALE   = 0.02   -- lower = larger hills (covers many cells)
@@ -177,14 +184,22 @@ end
 -- 1️⃣ Deterministic base biome map
 -- -----------------------------------------------------------------
 local function getBaseBiome(cellX, cellZ)
-	local n = math.noise(cellX * BIOME_NOISE_SCALE, cellZ * BIOME_NOISE_SCALE)
-	local pct = (n + 1) * 50
-	for biome, threshold in pairs(BIOME_THRESHOLDS) do
+    -- Apply the server‑wide random offset
+    local ox, oz = SERVER_BIOME_OFFSET_X, SERVER_BIOME_OFFSET_Z
+
+    -- Noise input (offset added BEFORE scaling)
+    local n = math.noise((cellX + ox) * BIOME_NOISE_SCALE,
+                         (cellZ + oz) * BIOME_NOISE_SCALE)
+
+    local pct = (n + 1) * 50   -- maps [-1,1] → [0,100]
+
+    for biome, threshold in pairs(BIOME_THRESHOLDS) do
 		if pct <= threshold then
 			return biome
 		end
 	end
-	return "Grasslands"
+
+    return "Grasslands"
 end
 
 -- -----------------------------------------------------------------
